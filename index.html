@@ -62,6 +62,18 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 </head>
 <body>
 
+<script>
+(function(){
+  if(sessionStorage.getItem('_auth42') === 'ok') return;
+  var pw = prompt('비밀번호를 입력하세요');
+  if(pw === 'slowbear'){
+    sessionStorage.setItem('_auth42','ok');
+  } else {
+    document.documentElement.innerHTML = '<body style="background:#0d1117;color:#e6edf3;font-family:sans-serif;padding:60px 20px;text-align:center;font-size:14px">접근 권한이 없습니다.</body>';
+  }
+})();
+</script>
+
 <div class="nav">
   <h1>42dot DB Interview</h1>
   <span class="cnt" id="counter">20 cards</span>
